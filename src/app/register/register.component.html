@@ -1,0 +1,28 @@
+<h2 class="my-4">Register</h2>
+<form [formGroup]="Registerform" (ngSubmit)="Register(Registerform)">
+    <div class="form-group">
+        <label>Name</label>
+        <input type="text" class="form-control mt-3"   formControlName="userName">
+       
+    </div>
+    <small class="alert alert-danger d-block mt-2" *ngIf="Registerform.get('userName')?.getError('required') && Registerform.get('userName')?.touched">userName is required</small>
+    <small class="alert alert-danger d-block mt-2" *ngIf="Registerform.get('userName')?.getError('minlength')">password must be min 3 characters</small>
+    <small class="alert alert-danger d-block mt-2" *ngIf="Registerform.get('userName')?.getError('maxlength')">password must be max 20 characters</small>
+<div class="form-group">
+<label>email</label>
+<input type="email" class="form-control mt-3"  formControlName="email">
+<small class="alert alert-danger d-block mt-2" *ngIf="Registerform.get('email')?.getError('required') && Registerform.get('email')?.touched">email is Requrired</small>
+</div>
+<div class="form-group">
+
+<label>password</label>
+<input type="password" class="form-control mt-3"  formControlName="password">
+<small class="alert alert-danger d-block mt-2" *ngIf="Registerform.get('password')?.getError('required') && Registerform.get('password')?.touched">password is Requrired</small>
+</div>
+<div class="form-group">
+<label>cpassword</label>
+<input type="password" class="form-control mt-3"  formControlName="cPassword">
+<small class="alert alert-danger d-block mt-2" *ngIf="Registerform.get('cPassword')?.getError('required') && Registerform.get('cPassword')?.touched">cPassword is Requrired</small>
+<button type="submit" class="btn btn-info mt-3">Register</button>
+</div>
+</form>
