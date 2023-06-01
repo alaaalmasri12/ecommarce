@@ -1,1 +1,17 @@
-<p>login works!</p>
+<h2 class="my-4">Login</h2>
+<form [formGroup]="Loginform" (ngSubmit)="Login(Loginform)">
+    
+<div class="form-group">
+<label>email</label>
+<input type="email" class="form-control mt-3"  formControlName="email">
+<small class="alert alert-danger d-block mt-2" *ngIf="Loginform.get('email')?.getError('required') && Loginform.get('email')?.touched">email is Requrired</small>
+</div>
+<div class="form-group">
+
+<label>password</label>
+<input type="password" class="form-control mt-3"  formControlName="password">
+<small class="alert alert-danger d-block mt-2" *ngIf="Loginform.get('password')?.getError('required') && Loginform.get('password')?.touched">password is Requrired</small>
+</div>
+<button [disabled]="Loginform.invalid" type="submit" class="btn btn-info mt-3">Login</button>
+
+</form>

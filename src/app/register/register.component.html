@@ -23,6 +23,7 @@
 <label>cpassword</label>
 <input type="password" class="form-control mt-3"  formControlName="cPassword">
 <small class="alert alert-danger d-block mt-2" *ngIf="Registerform.get('cPassword')?.getError('required') && Registerform.get('cPassword')?.touched">cPassword is Requrired</small>
-<button type="submit" class="btn btn-info mt-3">Register</button>
+<button [disabled]="Registerform.invalid" type="submit" class="btn btn-info mt-3">Register</button>
 </div>
 </form>
+

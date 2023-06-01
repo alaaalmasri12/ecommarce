@@ -11,9 +11,25 @@ export class ProductsService {
   { 
 
   }
-  getallproducts():Observable<any>
+  getallproductsCategoires():Observable<any>
   {
-    return   this._httpclient.get("https://precious-bass-tights.cyclic.app/category");
+    return   this._httpclient.get("https://knowledge-ecommerce.cyclic.app/category");
 
   }
+  products(pageNo:number):Observable<any>
+  {
+    return   this._httpclient.get(`https://knowledge-ecommerce.cyclic.app/product/?page=${pageNo}`);
+
+  }
+  getSubproducts(id:any):Observable<any>
+  {
+    return   this._httpclient.get(`https://knowledge-ecommerce.cyclic.app/category/${id}/subcategory`);
+
+  }
+  productdetails(id:any):Observable<any>
+  {
+    return   this._httpclient.get(`https://knowledge-ecommerce.cyclic.app/product/${id}`);
+
+  }
+ 
 }

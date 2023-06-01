@@ -13,6 +13,12 @@ import { ProductsComponent } from './products/products.component';
 import {HttpClientModule} from '@angular/common/http';
 import { CartComponent } from './cart/cart.component';
 import { ReactiveFormsModule } from '@angular/forms';
+import { RouterModule } from '@angular/router';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { CarouselModule } from 'ngx-owl-carousel-o';
+import { ProductComponent } from './product/product.component';
+import { SpinnerComponent } from './spinner/spinner.component';
+
 
 @NgModule({
   declarations: [
@@ -24,13 +30,18 @@ import { ReactiveFormsModule } from '@angular/forms';
     HomeComponent,
     NotFoundComponent,
     ProductsComponent,
-    CartComponent
+    CartComponent,
+    ProductComponent,
+    SpinnerComponent,
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    RouterModule,
+    BrowserAnimationsModule,
+    CarouselModule,
   ],
   providers: [],
   bootstrap: [AppComponent]
