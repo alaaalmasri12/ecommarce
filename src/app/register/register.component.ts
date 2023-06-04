@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { FormGroup,FormControl,Validators } from '@angular/forms';
+import { Router } from '@angular/router';
 import { AuthService } from '../auth.service';
 
 @Component({
@@ -9,7 +10,11 @@ import { AuthService } from '../auth.service';
 })
 //ypu can also use pattren validators.pattren regex
 export class RegisterComponent {
-  constructor(private _authservice:AuthService)
+  emailexist:any
+  confirmpassword:any
+  Result:any
+  loading:boolean=false;
+  constructor(private _authservice:AuthService,private _router:Router)
   {
 
   }
@@ -24,8 +29,29 @@ Register(Register:FormGroup)
 {
   if(!Register.invalid)
   {
+    this.loading=true
   this._authservice.Register(Register.value).subscribe({
-    next:(data)=>{console.log(data)}
+    next:(data)=>{console.log(data)
+      this.Result=data
+    if(this.Result.message="Done")
+    {
+this._router.navigate(['/login'])
+this.loading=false
+    }
+    },
+    error:(error)=>{
+if(error.status=="409")
+{
+ this.emailexist=error.message
+ this.loading=false
+}
+else if(error.status=="400")
+{
+this.confirmpassword="Password must be matched"
+this.loading=false
+
+}
+    }
   })
   }
 }

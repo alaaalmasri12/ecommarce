@@ -26,11 +26,15 @@ Login(Login:FormGroup)
   {
   this._authservice.login(Login.value).subscribe({
     next:(data)=>{
-      console.log(this.Result)
       this.Result=data
+      console.log(this.Result)
+
       if(this.Result.message="Done")
       {
 this._routerlink.navigate(['/cart'])
+localStorage.setItem("usertoken",this.Result.access_token)
+console.log(localStorage.getItem("usertoken"))
+this._authservice.SaveCureentUser()
       }
      }
   })

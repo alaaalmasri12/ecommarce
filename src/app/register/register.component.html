@@ -12,6 +12,8 @@
 <label>email</label>
 <input type="email" class="form-control mt-3"  formControlName="email">
 <small class="alert alert-danger d-block mt-2" *ngIf="Registerform.get('email')?.getError('required') && Registerform.get('email')?.touched">email is Requrired</small>
+<small class="alert alert-danger d-block mt-2" *ngIf="emailexist">Email ALREADY EXIST</small>
+
 </div>
 <div class="form-group">
 
@@ -23,7 +25,8 @@
 <label>cpassword</label>
 <input type="password" class="form-control mt-3"  formControlName="cPassword">
 <small class="alert alert-danger d-block mt-2" *ngIf="Registerform.get('cPassword')?.getError('required') && Registerform.get('cPassword')?.touched">cPassword is Requrired</small>
-<button [disabled]="Registerform.invalid" type="submit" class="btn btn-info mt-3">Register</button>
+<button [disabled]="Registerform.invalid"    type="submit" class="btn btn-info mt-3"><app-spinner  *ngIf="loading"></app-spinner>Register</button>
 </div>
+
 </form>
 
