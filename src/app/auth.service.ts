@@ -18,7 +18,7 @@ stats:boolean=false;
   }
   Register(user:any)
   {
-    return   this._httpclient.post(`https://knowledge-ecommerce.cyclic.app/auth/signup`,user);
+    return   this._httpclient.post(`https://king-prawn-app-3mgea.ondigitalocean.app/auth/signup`,user);
 
   }
   SaveCureentUser()
@@ -30,7 +30,7 @@ stats:boolean=false;
 
   login(user:any)
   {
-    return   this._httpclient.post(`https://knowledge-ecommerce.cyclic.app/auth/login`,user);
+    return   this._httpclient.post(`hhttps://king-prawn-app-3mgea.ondigitalocean.app/auth/login`,user);
 
   }
 }

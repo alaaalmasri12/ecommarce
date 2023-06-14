@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
+import { CartServiceService } from '../cart-service.service';
 import { ProductsService } from '../products.service';
 
 @Component({
@@ -11,7 +12,7 @@ export class ProductComponent {
   ProductId:any
 Productdetails:any=[]
 SubIMages:any=[]
-constructor(private _productservice:ProductsService,private _activtedroute:ActivatedRoute)
+constructor(private _productservice:ProductsService,private _activtedroute:ActivatedRoute,private _cartservice:CartServiceService)
 {
   console.log("test");
 }
@@ -27,6 +28,6 @@ ngOnInit(): void {
     console.log(this.SubIMages,"subimages");
     }
   })
-}
+  }
 }
 }
